@@ -28,7 +28,7 @@
      * Factory to create a modal instance to use it as aside. It simply wraps $modal by overriding open() method and sets a class on modal window.
      * @function
      */
-    .factory('$aside', function($modal) {
+    .factory('$aside', ['$modal', function($modal) {
       var defaults = this.defaults = {
         placement: 'left'
       };
@@ -52,5 +52,5 @@
       // create $aside as extended $modal
       var $aside = angular.extend({}, $modal, asideFactory);
       return $aside;
-    });
+    }]);
 })();
